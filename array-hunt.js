@@ -156,19 +156,19 @@ function arrayHunt() {
     }
     /*
     Output all of the strings, but with all of their vowels
-    in uppercase, to td#upperVowels
+    in uppercase, to td#upperVowels */
 
 
     for (let i=0; i< myArray.length; i++) {
-        let aValue = myArra[i];
+        let aValue = myArray[i];
         aValue = aValue.replaceAll("a", "A")
             .replaceAll("e", "E")
             .replaceAll("i", "I")
             .replaceAll("o", "O")
             .replaceAll("u", "U");
-        $("tdupperVowels").apend(aValue);
-    } */
-
+        $("td#upperVowels").append(aValue);
+    }
+/*
   let allStrings = myArray.join(", ");
   let allStrings1 = allStrings.replaceAll("a", "A");
     let allStrings2 = allStrings1.replaceAll("e", "E");
