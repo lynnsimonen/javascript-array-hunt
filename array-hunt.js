@@ -101,41 +101,90 @@ function arrayHunt() {
 
     $("td#firstLast").append(first + " " + last);
 
-
     /*
     Find the first string that contains an 'n'.
     Output it to td#firstEnn
      */
 
+    for (let aValue of myArray)
+    {
+        if (aValue.includes("n"))
+        {
+            $("td#firstEnn").text(aValue);
+            //show ALL strings $("td#firstEnn").append(aValue); w/o break;
+            break;
+        }
+    }
 
     /*
     Find all of the strings with less than 6 characters.
     Output them to td#lessThanSix
      */
+    //while more strings to check AND string does not contain n
 
+    //type fori tab
+    for (let i = 0; i < myArray.length; i++) {
+        let aValue = myArray[i];
 
+        if(aValue.length < 6)
+        {
+            $("td#lessThanSix").append(aValue);
+        }
+    }
     /*
     Find the longest string in the array.
-    Output it to td#longName
-     */
+    Output it to td#longName */
 
+    let longest = 0;
+    for (let i = 0; i < myArray.length; i++) {
+        if (myArray[i].length > longest) {
+            longest = myArray[i].length;
+            $("td#longName").text(myArray[i]);
+        }
+    }
 
-    /*
+   /*
     Find all of the strings that do not contain the letter 's'.
     Output them to td#noEss
      */
-
-
+    for (let aValue of myArray)
+    {
+        if (!aValue.includes("s"))
+        {
+            $("td#noEss").append(aValue);
+        }
+    }
     /*
     Output all of the strings, but with all of their vowels
     in uppercase, to td#upperVowels
-     */
 
+
+    for (let i=0; i< myArray.length; i++) {
+        let aValue = myArra[i];
+        aValue = aValue.replaceAll("a", "A")
+            .replaceAll("e", "E")
+            .replaceAll("i", "I")
+            .replaceAll("o", "O")
+            .replaceAll("u", "U");
+        $("tdupperVowels").apend(aValue);
+    } */
+
+  let allStrings = myArray.join(", ");
+  let allStrings1 = allStrings.replaceAll("a", "A");
+    let allStrings2 = allStrings1.replaceAll("e", "E");
+    let allStrings3 = allStrings2.replaceAll("i", "I");
+    let allStrings4 = allStrings3.replaceAll("o", "O");
+    let allStrings5 = allStrings4.replaceAll("u", "U");
+  $("td#upperVowels").text(allStrings5)
 
     /*
     Output all of the strings in reverse order and separated by
     ' - ' to td#reverseDash
      */
+    //no loop needed, just .join and .reverse
 
+    let myArray2 = myArray.reverse();
+    let allString = myArray2.join(" - ");
+    $("td#reverseDash").text(allString);
 
 }
